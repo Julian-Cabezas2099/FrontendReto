@@ -47,6 +47,7 @@ function consultar() {
                                     $("#res").empty();
 
                                     document.getElementById("tablaid").style.display="";
+                                    
                                     for (i=0; i < json.length; i++){
 
                                         var idClient= json[i].idClient;
