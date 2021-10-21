@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmnls:th="http//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Clientes</title>
+<script src="js/funcionescliente.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+
+<body class="mx-auto">
+	<br>
+	<div class="container">
+	<div class="container" >
+	<h3 >Registro de Clientes</h3>
+	</div>
+	<div class="container">
+		<form>
+
+		
+			
+			<div class="form-group">
+				<label  class="col-form-label">Nombre</label>
+				<div>
+                    
+					<input maxlength="250" type="text" id="idNombre" class="form-control">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label  class="col-form-label">Correo</label>
+				<div>
+                    
+					<input maxlength="45" type="text" id="idCorreo" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label  class="col-form-label">Password</label>
+				<div>
+                    
+					<input maxlength="45" type="password" id="idPassword" class="form-control">
+				</div>
+			</div>
+
+            <div class="form-group">
+				<label  class="col-form-label">Edad</label>
+				<div>
+                    
+					<input type="number" id="idEdad" class="form-control">
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div>
+                    <button onclick="insertar2()" type="submit" class="btn btn-primary">Insertar cliente</button>
+				</div>
+			</div>
+		</form><br>
+
+        <hr width=1095>
+<div id="conttabla">
+		<h3>MESSAGES INTO DATABASE</h3><br>
+
+		<table id="tablaid" class="table table-striped " style="display: none"> 
+		<thead class="thead-inverse">
+			<tr>
+                <th>ID CLIENTE</th>
+                <th>NOMBRE CLIENTE</th>
+                <th>CORREO</th>
+                <th>EDAD</th>
+                <th>DETAIL</th>
+                <th>DELETE</th>
+			</tr>
+		</thead>
+        <a class="btn btn-success" onclick="consultar()">MOSTRAR REGISTROS</a> 
+        <br>
+        <br>
+		<tbody id="res">
+
+		</tbody>
+	</table>
+</div>
+
+
+    <div style="display:none" id="clienteinformation">
+        <h3>Información de cliente</h3> 
+        <label>Id Cliente</label> 
+        <input class="form-control" type="text" id="idinfo" readonly>
+        <label>Nombre</label>
+        <input maxlength="250" class="form-control" type="text" id="nombreinfo"> <br>
+        <label>Correo</label>
+        <input class="form-control" type="text" id="correoinfo" readonly> <br> 
+		<label>Password</label>
+        <input maxlength="45" class="form-control" type="text" id="passInfo"> <br>   
+        <label>Edad</label>
+        <input class="form-control" type="text" id="edadinfo"> <br>   
+
+        <button style="display:none" class="btn btn-primary"  id="botoninfo" onclick=actualizar() >Editar usuario</button>
+    </div>
+
+	</div>
+	</div>
+</body>
+<footer class="mx-auto">
+    <br>
+    <br>
+    <br>
+    
+</footer>
+</html>
