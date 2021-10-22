@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmnls:th="http//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Categoria</title>
+<script src="js/funcionesCategoria.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+
+<body class="mx-auto">
+	<br>
+	<div class="container">
+	<div class="container" >
+	<h3 >Registro de Categorias</h3>
+	</div>
+	<div class="container">
+		<form>
+
+			<div class="form-group">
+				<label  class="col-form-label">Nombre - Name</label>
+				<div>
+                    
+					<input maxlength="250" type="text" id="idNombre" class="form-control">
+				</div>
+			</div>
+
+            <div class="form-group">
+				<label  class="col-form-label">Descripcion - Description</label>
+				<div>
+                    
+					<input maxlength="250" type="text" id="idDescripcion" class="form-control">
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div>
+                    <button onclick="insertar2()" type="submit" class="btn btn-primary">Insertar categoria</button>
+				</div>
+			</div>
+		</form><br>
+
+        <hr width=1095>
+<div id="conttabla">
+		<h3>CATEGORIES INTO DATABASE</h3><br>
+
+		<table id="tablaid" class="table table-striped " style="display: none"> 
+		<thead class="thead-inverse">
+			<tr>
+                <th>ID CATEGORIA</th>
+                <th>NOMBRE CATEGORIA</th>
+                <th>DESCRIPCION CATEGORIA</th>
+                <th>DETAIL</th>
+                <th>DELETE</th>
+			</tr>
+		</thead>
+        <a class="btn btn-success" onclick="consultar()">MOSTRAR REGISTROS CATEGORIA</a> 
+        <br>
+        <br>
+		<tbody id="res">
+
+		</tbody>
+	</table>
+</div>
+
+
+    <div style="display:none" id="categoriainformation">
+        <h3>Información de categoria</h3> 
+        <label>Id Categoria</label> 
+        <!-- Revisar si es type number o text -->
+        <input class="form-control" type="text" id="idinfo" readonly>
+		<label>Nombre</label>
+        <input maxlength="250" class="form-control" type="text" id="nombreinfo"> <br>   
+        <label>Descripcion</label>
+        <input maxlength="250" class="form-control" type="text" id="descripcioninfo"> <br>   
+
+        <button style="display:none" class="btn btn-primary"  id="botoninfo" onclick=actualizar() >Editar Categoria</button>
+    </div>
+
+	</div>
+	</div>
+</body>
+<footer class="mx-auto">
+    <br>
+    <br>
+    <br>
+    
+</footer>
+</html>
