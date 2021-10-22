@@ -88,17 +88,14 @@ function mostrarinfo(id,nombre,correo,edad){
 }
 function borrar(deleteid) {
 
-    var datos;
-
-    datos      = {id : deleteid};
-    datosEnvio   = JSON.stringify(datos);
+  
 
     $.ajax (
         {
 
-            url          : 'https://gb3fef91024b680-databasebike.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client',
+            url          : 'http://localhost:8080/api/Client/'+ deleteid,
             type         : 'DELETE',
-            data         :  datosEnvio,
+          
             contentType  : 'application/json',
 
             success      :  function(response){

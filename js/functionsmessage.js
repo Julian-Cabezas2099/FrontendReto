@@ -27,7 +27,7 @@ function consultar() {
                                       //llamar por medio de jquery el accionar del boton detail
                                        $("#boton").click(()=>mostrarinfo(idsms,cliente,bicicleta, mensaje, idbicicleta));
                                         //insertar y llamar dentro de una columna por medio de JS
-                                       $("#res").append("<td> <a class=\"btn btn-outline-danger\" href='http://localhost:8080/api/Message/" + respuesta[i].idMessage +"'>DELETE MESSAGE</a> </td>");
+                                       $("#res").append("<td> <a class=\"btn btn-outline-danger\"  onclick=borrar(" +idsms+")>DELETE MESSAGE</a> </td>");
                                         console.log(respuesta[i].idMessage);
                                         $("#res").append("</tr> ");
 
@@ -90,18 +90,18 @@ function insertar() {
         
         function borrar(deleteid) {
 
-            var datos;
+           /* var datos;
         
             datos      = {idMessage : deleteid};
-            datosEnvio   = JSON.stringify(datos);
+            datosEnvio   = JSON.stringify(datos);*/
         
             $.ajax (
                 {
         
-                    url          : 'http://localhost:8080/api/Message/'+{deleteid},
+                    url          : 'http://localhost:8080/api/Message/'+deleteid,
                     type         : 'DELETE',
                  
-                    data         :  datosEnvio,
+                   
                     contentType  : 'application/json',
         
                     success      :  function(response){
@@ -160,6 +160,8 @@ function insertar() {
 
 
         function mostrarinfo(idsms, cliente, bicicleta, mensaje, idBicicleta){
+
+
             //hacer visible el editar informacion (boton detail)
             document.getElementById("userinformation").style.display="";
             document.getElementById("botoninfo").style.display="";
