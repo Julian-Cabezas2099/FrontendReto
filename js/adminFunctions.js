@@ -75,7 +75,7 @@ $.ajax(
 
 
                             }
-                            console.log(json)
+                            
                         },
 
          error       :  function(xhr,status){

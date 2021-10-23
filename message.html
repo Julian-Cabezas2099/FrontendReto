@@ -20,17 +20,17 @@
 		<form">
 
 			<div class="form-group">
-				<label class="col-form-label">Client Id</label>
+				<label class="col-form-label">Id del cliente</label>
 				<div>
 					<input type="text" id="clientId" class="form-control">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label  class="col-form-label">Bike</label>
+				<label  class="col-form-label">Bicicleta</label>
 				<div>
-                    <select  onclick="listar()">
-						<option id="listaBicicletas">Name to bike</option>
+					<select id="listaBicis" onclick="listarBicis()">
+						<option >--Bicicletas--</option>
 						
 					 </select>
 				</div>
@@ -38,7 +38,7 @@
 
 			
 			<div class="form-group">
-				<label  class="col-form-label">MESSAGE</label>
+				<label  class="col-form-label">Mensaje</label>
 				<div>
                     
 					<input maxlength="250" type="text" id="messageform" class="form-control">
@@ -49,7 +49,7 @@
 			<br>
 			<div class="form-group">
 				<div>
-                    <button onclick="insertar()" type="submit" class="btn btn-primary">Load to message</button>
+                    <button onclick="insertar()" type="submit" class="btn btn-primary">Guardar mensaje</button>
 					
 				</div>
 			</div>

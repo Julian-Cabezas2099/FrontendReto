@@ -1,17 +1,29 @@
-function listar(){
+function listarBicis(){
             $.ajax(
                      {
                         url          : 'http://localhost:8080/api/Bike/all',
+                        url          : 'http://152.70.141.56:8080/api/Bike/all',
                         type         : 'GET',
                         dataType     : 'JSON',
                         success      :  function(respuesta){
+                            
+                                            
                             console.log(respuesta)
                                             
-                                            $("#listaBicicletas").empty();
-                                            for (i=0; i < respuesta.length; i++){
+                        
+                            $("#listaBicis").empty();
+   
+                            
+                            for (i=0; i < respuesta.length; i++){
+   
+                                  $("#listaBicis").append("<option value='"+respuesta[i].id+"' id='opcion' >"+respuesta[i].id+" "+ respuesta[i].name+"</option>")
+   
+                               }
+                                            // $("#listaBicicletas").empty();
+                                            // for (i=0; i < respuesta.length; i++){
                                                   
-                                                $("#listaBicicletas").append("<option id='namebike' value="+ respuesta[i].id+ ">"+respuesta[i].name+"</option>");
-                                            }
+                                            //     $("#listaBicicletas").append("<option id='namebike' value="+ respuesta[i].id+ ">"+respuesta[i].name+"</option>");
+                                            // }
                                             
                                         },
         
@@ -30,6 +42,7 @@ function consultar() {
     $.ajax(
              {
                 url          : 'http://localhost:8080/api/Reservation/all',
+                url          : 'http://152.70.141.56:8080/api/Reservation/all',
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(respuesta){
@@ -102,7 +115,7 @@ function insertar() {
     var message;
     //obtener valores de las cajas de texto
     var cliente = document.getElementById("idcliente").value;
-    var bicicleta = 1 //document.getElementById("listaBicicletas").value;
+    var bicicleta = $("#listaBicis").children("option:selected").val();
    
     //imprimir valores por consola para comprobar que esta obteniendo los valores deseados
     console.log(cliente);
@@ -115,6 +128,7 @@ function insertar() {
         {
 
             url          : 'http://localhost:8080/api/Reservation/save',
+            url          : 'http://152.70.141.56:8080/api/Reservation/save',
             type         : 'POST',
             contentType  : "application/json;charset-UTF-8",
             dataType     : 'JSON',
@@ -181,6 +195,7 @@ function editarReserva()
                 {
         
                     url          : 'http://localhost:8080/api/Reservation/update',
+                    url          : 'http://152.70.141.56:8080/api/Reservation/update',
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
@@ -210,7 +225,8 @@ function editarReserva()
             // datosEnvio = JSON.stringify(datos);
     
             $.ajax({
-                url: "http://localhost:8080/api/Reservation/" + deleteid,
+                url          : "http://localhost:8080/api/Reservation/" + deleteid,
+                url          : 'http://152.70.141.56:8080/api/Reservation/'+deleteid,
                 type: "DELETE",
                 // data: datosEnvio,
                 contentType: "application/json",

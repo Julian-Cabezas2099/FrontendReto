@@ -15,6 +15,7 @@ function insertar2() {
                     
         
                     url          : 'http://localhost:8080/api/Client/save',
+                    url          : 'http://152.70.141.56:8080/api/Client/save',
                     type         : 'POST',
                     contentType  : "application/json;charset-UTF-8",
                     dataType     : 'JSON',
@@ -37,6 +38,7 @@ function consultar() {
     $.ajax(
              {
                 url          : 'http://localhost:8080/api/Client/all',
+                url          : 'http://152.70.141.56:8080/api/Client/all',
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(json){
@@ -94,6 +96,7 @@ function borrar(deleteid) {
         {
 
             url          : 'http://localhost:8080/api/Client/'+ deleteid,
+            url          : 'http://152.70.141.56:8080/api/Client/'+deleteid,
             type         : 'DELETE',
           
             contentType  : 'application/json',
@@ -123,6 +126,7 @@ function actualizar() {
     $.ajax (
                 {
                     url          : 'http://localhost:8080/api/Client/update',
+                    url          : 'http://152.70.141.56:8080/api/Client/update',
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',

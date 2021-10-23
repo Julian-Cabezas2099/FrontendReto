@@ -7,14 +7,16 @@ function insertar2() {
     var modelo = document.getElementById("idModelo").value; 
     var nombre = document.getElementById("idNombre").value; 
     var descripcion = document.getElementById("idDescripcion").value;
-    console.log("Hola mundo");
+    let categoria = $("#listaCategorias").children("option:selected").val();
+    console.log(categoria+" se selecciono");
     
-   bicicleta = {brand: marca, year: modelo, name: nombre, description: descripcion , category:{id:1}};
+   bicicleta = {brand: marca, year: modelo, name: nombre, description: descripcion , category:{id:categoria}};
     $.ajax (
         {
             
 
             url          : 'http://localhost:8080/api/Bike/save',
+            url          : 'http://152.70.141.56:8080/api/Bike/save',
             type         : 'POST',
             contentType  : "application/json;charset-UTF-8",
             dataType     : 'JSON',
@@ -32,11 +34,42 @@ function insertar2() {
     );
    
 }
+function listarCategorias(){
+
+    let categoria = $("#listaCategorias").children("option:selected").val();
+    console.log(categoria+" se selecciono");
+    $.ajax(
+        {
+           url          : 'http://localhost:8080/api/Category/all',
+           url          : 'http://152.70.141.56:8080/api/Category/all',
+           type         : 'GET',
+           dataType     : 'JSON',
+           success      :  function(json){
+                            
+                            console.log(json)
+                            $("#listaCategorias").empty();
+   
+                            
+                            for (i=0; i < json.length; i++){
+   
+                                  $("#listaCategorias").append("<option id='opcion' >"+json[i].id+"</option>")
+   
+                               }
+                               
+                           },
+   
+            error       :  function(xhr,status){
+                               console.log(xhr)
+                           }
+        }
+   ); 
+}
 
 function consultar() {
 $.ajax(
      {
         url          : 'http://localhost:8080/api/Bike/all',
+        url          : 'http://152.70.141.56:8080/api/Bike/all',
         type         : 'GET',
         dataType     : 'JSON',
         success      :  function(json){
@@ -92,6 +125,7 @@ $.ajax (
 {
 
     url          : 'http://localhost:8080/api/Bike/'+deleteid,
+    url          : 'http://152.70.141.56:8080/api/Bike/'+deleteid,
     type         : 'DELETE',
     contentType  : 'application/json',
 
@@ -120,6 +154,7 @@ datosEnvio   = JSON.stringify(cambio);
 $.ajax (
         {
             url          : 'http://localhost:8080/api/Bike/update',
+            url          : 'http://152.70.141.56:8080/api/Bike/update',
             type         : 'PUT',
             data         :  datosEnvio,
             contentType  : 'application/json',
