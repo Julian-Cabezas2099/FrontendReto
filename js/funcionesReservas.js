@@ -1,17 +1,33 @@
-function listar(){
+function listarBicis(){
             $.ajax(
                      {
+<<<<<<< HEAD
                         url          : 'http://129.151.121.220:8080/api/Bike/all',
+=======
+                        url          : 'http://localhost:8080/api/Bike/all',
+                        url          : 'http://152.70.141.56:8080/api/Bike/all',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                         type         : 'GET',
                         dataType     : 'JSON',
                         success      :  function(respuesta){
+                            
+                                            
                             console.log(respuesta)
                                             
-                                            $("#listaBicicletas").empty();
-                                            for (i=0; i < respuesta.length; i++){
+                        
+                            $("#listaBicis").empty();
+   
+                            
+                            for (i=0; i < respuesta.length; i++){
+   
+                                  $("#listaBicis").append("<option value='"+respuesta[i].id+"' id='opcion' >"+respuesta[i].id+" "+ respuesta[i].name+"</option>")
+   
+                               }
+                                            // $("#listaBicicletas").empty();
+                                            // for (i=0; i < respuesta.length; i++){
                                                   
-                                                $("#listaBicicletas").append("<option id='namebike' value="+ respuesta[i].id+ ">"+respuesta[i].name+"</option>");
-                                            }
+                                            //     $("#listaBicicletas").append("<option id='namebike' value="+ respuesta[i].id+ ">"+respuesta[i].name+"</option>");
+                                            // }
                                             
                                         },
         
@@ -29,7 +45,12 @@ function listar(){
 function consultar() {
     $.ajax(
              {
+<<<<<<< HEAD
                 url          : 'http://129.151.121.220:8080/api/Reservation/all',
+=======
+                url          : 'http://localhost:8080/api/Reservation/all',
+                url          : 'http://152.70.141.56:8080/api/Reservation/all',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(respuesta){
@@ -102,7 +123,7 @@ function insertar() {
     var message;
     //obtener valores de las cajas de texto
     var cliente = document.getElementById("idcliente").value;
-    var bicicleta = 1 //document.getElementById("listaBicicletas").value;
+    var bicicleta = $("#listaBicis").children("option:selected").val();
    
     //imprimir valores por consola para comprobar que esta obteniendo los valores deseados
     console.log(cliente);
@@ -114,7 +135,12 @@ function insertar() {
     $.ajax (
         {
 
+<<<<<<< HEAD
             url          : 'http://129.151.121.220:8080/api/Reservation/save',
+=======
+            url          : 'http://localhost:8080/api/Reservation/save',
+            url          : 'http://152.70.141.56:8080/api/Reservation/save',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
             type         : 'POST',
             contentType  : "application/json;charset-UTF-8",
             dataType     : 'JSON',
@@ -180,7 +206,12 @@ function editarReserva()
             $.ajax (
                 {
         
+<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Reservation/update',
+=======
+                    url          : 'http://localhost:8080/api/Reservation/update',
+                    url          : 'http://152.70.141.56:8080/api/Reservation/update',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
@@ -211,7 +242,12 @@ function borrar(deleteid) {
             // datosEnvio = JSON.stringify(datos);
     
             $.ajax({
+<<<<<<< HEAD
                 url: "http://129.151.121.220:8080/api/Reservation/" + deleteid,
+=======
+                url          : "http://localhost:8080/api/Reservation/" + deleteid,
+                url          : 'http://152.70.141.56:8080/api/Reservation/'+deleteid,
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type: "DELETE",
                 // data: datosEnvio,
                 contentType: "application/json",

@@ -1,7 +1,12 @@
 function consultar() {
     $.ajax(
              {
+<<<<<<< HEAD
                 url          : 'http://129.151.121.220:8080/api/Message/all',
+=======
+                url          : 'http://localhost:8080/api/Message/all',
+                url          : 'http://152.70.141.56:8080/api/Message/all',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(respuesta){
@@ -13,14 +18,14 @@ function consultar() {
 
                                     document.getElementById("tablaid").style.display="";
                                     for (i=0; i < respuesta.length; i++){
-                                        var cliente = respuesta[i].client.idClient;
+                                        var cliente = respuesta[i].client.name;
                                         var mensaje = respuesta[i].messageText;
                                         var bicicleta = respuesta[i].bike.name;
                                         var idbicicleta = respuesta[i].bike.name;
                                         var idsms = respuesta[i].idMessage;
                                         
                                         $("#res").append("<tr>");
-                                        $("#res").append("<td>" + respuesta[i].client.idClient + "</td>");
+                                        $("#res").append("<td>" + cliente + "</td>");
                                         $("#res").append("<td>" + respuesta[i].bike.name + "</td>");
                                         $("#res").append("<td>" + respuesta[i].messageText + "</td>");
                                        $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\"> DETAIL </a></td>");
@@ -52,8 +57,8 @@ function insertar() {
             var message;
             //obtener valores de las cajas de texto
             var cliente = document.getElementById("clientId").value;
-            var bicicleta = document.getElementById("listaBicicletas").value;
-            
+            // var bicicleta = document.getElementById("listaBicicletas").value;
+            let bicicleta = $("#listaBicis").children("option:selected").val();
             var mensaje = document.getElementById("messageform").value;
             //imprimir valores por consola para comprobar que esta obteniendo los valores deseados
             console.log(cliente);
@@ -65,7 +70,12 @@ function insertar() {
             $.ajax (
                 {
         
+<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Message/save',
+=======
+                    url          : 'http://localhost:8080/api/Message/save',
+                    url          : 'http://152.70.141.56:8080/api/Message/save',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'POST',
                     contentType  : "application/json;charset-UTF-8",
                     dataType     : 'JSON',
@@ -73,8 +83,12 @@ function insertar() {
         
                     success      :  function(response){
                                        console.log(response);
+<<<<<<< HEAD
                                        //refresh a la tabla
                                        alert("Registro exitoso");
+=======
+                                       
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                                     },
                     error       :   function(xhr,status){
                                     console.log( xhr);
@@ -97,7 +111,12 @@ function borrar(deleteid) {
             $.ajax (
                 {
         
+<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Message/'+deleteid,
+=======
+                    url          : 'http://localhost:8080/api/Message/'+deleteid,
+                    url          : 'http://152.70.141.56:8080/api/Message/'+deleteid,
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'DELETE',
                  
                    
@@ -137,7 +156,11 @@ function editarmensaje()
             $.ajax (
                 {
         
+<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Message/update',
+=======
+                    url          : 'http://152.70.141.56:8080/api/Message/update',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
@@ -190,7 +213,12 @@ function actualizar() {
             $.ajax (
                         {
         
+<<<<<<< HEAD
                             url          : 'http://129.151.121.220:8080/api/Message/update',
+=======
+                            url          : 'http://localhost:8080/api/Message/update',
+                            url          : 'http://152.70.141.56:8080/api/Message/update',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                             type         : 'PUT',
                             data         :  datosEnvio,
                             contentType  : 'application/json',
@@ -210,22 +238,43 @@ function actualizar() {
         
         
         
+<<<<<<< HEAD
 }
 
 function listar(){
             $.ajax(
                      {
                         url          : 'http://129.151.121.220:8080/api/Bike/all',
+=======
+        }
+        function listarBicis(){
+
+            let bicicleta = $("#listaBicis").children("option:selected").val();
+            console.log(bicicleta+" se selecciono");
+            $.ajax(
+                     {
+                        url          : 'http://localhost:8080/api/Bike/all',
+                        url          : 'http://152.70.141.56:8080/api/Bike/all',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                         type         : 'GET',
                         dataType     : 'JSON',
                         success      :  function(respuesta){
                             console.log(respuesta)
                                             
-                                            $("#listaBicicletas").empty();
-                                            for (i=0; i < respuesta.length; i++){
+                        
+                            $("#listaBicis").empty();
+   
+                            
+                            for (i=0; i < respuesta.length; i++){
+   
+                                  $("#listaBicis").append("<option value='"+respuesta[i].id+"' id='opcion' >"+respuesta[i].id+" "+ respuesta[i].name+"</option>")
+   
+                               }
+                                            // $("#listaBicicletas").empty();
+                                            // for (i=0; i < respuesta.length; i++){
                                                   
-                                                $("#listaBicicletas").append("<option id='namebike' value="+ respuesta[i].id+ ">"+respuesta[i].name+"</option>");
-                                            }
+                                            //     $("#listaBicicletas").append("<option id='namebike' value="+ respuesta[i].id+ ">"+respuesta[i].name+"</option>");
+                                            // }
                                             
                                         },
         

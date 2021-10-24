@@ -14,7 +14,12 @@ function insertar2() {
                 {
                     
         
+<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Client/save',
+=======
+                    url          : 'http://localhost:8080/api/Client/save',
+                    url          : 'http://152.70.141.56:8080/api/Client/save',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'POST',
                     contentType  : "application/json;charset-UTF-8",
                     dataType     : 'JSON',
@@ -36,7 +41,12 @@ function insertar2() {
 function consultar() {
     $.ajax(
              {
+<<<<<<< HEAD
                 url          : 'http://129.151.121.220:8080/api/Client/all',
+=======
+                url          : 'http://localhost:8080/api/Client/all',
+                url          : 'http://152.70.141.56:8080/api/Client/all',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(json){
@@ -93,7 +103,12 @@ function borrar(deleteid) {
     $.ajax (
         {
 
+<<<<<<< HEAD
             url          : 'http://129.151.121.220:8080/api/Client/'+ deleteid,
+=======
+            url          : 'http://localhost:8080/api/Client/'+ deleteid,
+            url          : 'http://152.70.141.56:8080/api/Client/'+deleteid,
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
             type         : 'DELETE',
           
             contentType  : 'application/json',
@@ -122,7 +137,12 @@ function actualizar() {
     datosEnvio   = JSON.stringify(cambio);
     $.ajax (
                 {
+<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Client/update',
+=======
+                    url          : 'http://localhost:8080/api/Client/update',
+                    url          : 'http://152.70.141.56:8080/api/Client/update',
+>>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
