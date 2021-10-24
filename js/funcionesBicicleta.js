@@ -39,8 +39,8 @@ function listarCategorias(){
     console.log(categoria+" se selecciono");
     $.ajax(
         {
-           url          : 'http://localhost:8080/api/Category/all',
-           url          : 'http://152.70.141.56:8080/api/Category/all',
+           
+           url          : '129.151.121.220:8080/api/Category/all',
            type         : 'GET',
            dataType     : 'JSON',
            success      :  function(json){
@@ -51,7 +51,7 @@ function listarCategorias(){
                             
                             for (i=0; i < json.length; i++){
    
-                                  $("#listaCategorias").append("<option id='opcion' >"+json[i].id+"</option>")
+                                  $("#listaCategorias").append("<option id='opcion' >"+json[i].name+"</option>")
    
                                }
                                
