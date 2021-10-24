@@ -20,12 +20,7 @@ function insertar() {
             {
                 
 
-<<<<<<< HEAD
                 url          : 'http://129.151.121.220:8080/api/Admin/save',
-=======
-                url          : 'http://localhost:8080/api/Admin/save',
-                url          : 'http://152.70.141.56:8080/api/Admin/save',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type         : 'POST',
                 contentType  : "application/json;charset-UTF-8",
                 dataType     : 'JSON',
@@ -48,12 +43,7 @@ function consultar() {
     $("#adminInformation").hide();
 $.ajax(
      {
-<<<<<<< HEAD
         url          : 'http://129.151.121.220:8080/api/Admin/all',
-=======
-        url          : 'http://localhost:8080/api/Admin/all',
-        url          : 'http://152.70.141.56:8080/api/Admin/all',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
         type         : 'GET',
         dataType     : 'JSON',
         success      :  function(json){
@@ -117,12 +107,7 @@ function borrar(deleteid) {
         // datosEnvio = JSON.stringify(datos);
 
         $.ajax({
-<<<<<<< HEAD
             url: "http://129.151.121.220:8080/api/Admin/" + deleteid,
-=======
-            url: "http://localhost:8080/api/Admin/" + deleteid,
-            url          : 'http://152.70.141.56:8080/api/Admin/'+deleteid,
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
             type: "DELETE",
             // data: datosEnvio,
             contentType: "application/json",
@@ -155,12 +140,7 @@ function actualizar() {
         };
         datosEnvio = JSON.stringify(cambio);
         $.ajax({
-<<<<<<< HEAD
             url: "http://129.151.121.220:8080/api/Admin/update",
-=======
-            url: "http://localhost:8080/api/Admin/update",
-            url          : 'http://152.70.141.56:8080/api/Admin/update',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
             type: "PUT",
             data: datosEnvio,
             contentType: "application/json",

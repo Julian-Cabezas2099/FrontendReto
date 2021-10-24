@@ -1,12 +1,7 @@
 function consultar() {
     $.ajax(
              {
-<<<<<<< HEAD
                 url          : 'http://129.151.121.220:8080/api/Message/all',
-=======
-                url          : 'http://localhost:8080/api/Message/all',
-                url          : 'http://152.70.141.56:8080/api/Message/all',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(respuesta){
@@ -70,12 +65,8 @@ function insertar() {
             $.ajax (
                 {
         
-<<<<<<< HEAD
+
                     url          : 'http://129.151.121.220:8080/api/Message/save',
-=======
-                    url          : 'http://localhost:8080/api/Message/save',
-                    url          : 'http://152.70.141.56:8080/api/Message/save',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'POST',
                     contentType  : "application/json;charset-UTF-8",
                     dataType     : 'JSON',
@@ -83,12 +74,8 @@ function insertar() {
         
                     success      :  function(response){
                                        console.log(response);
-<<<<<<< HEAD
                                        //refresh a la tabla
                                        alert("Registro exitoso");
-=======
-                                       
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                                     },
                     error       :   function(xhr,status){
                                     console.log( xhr);
@@ -110,18 +97,9 @@ function borrar(deleteid) {
         
             $.ajax (
                 {
-        
-<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Message/'+deleteid,
-=======
-                    url          : 'http://localhost:8080/api/Message/'+deleteid,
-                    url          : 'http://152.70.141.56:8080/api/Message/'+deleteid,
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'DELETE',
-                 
-                   
                     contentType  : 'application/json',
-        
                     success      :  function(response){
                                         console.log("Se realizo el delete exitoso");
                                         consultar();
@@ -156,11 +134,7 @@ function editarmensaje()
             $.ajax (
                 {
         
-<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Message/update',
-=======
-                    url          : 'http://152.70.141.56:8080/api/Message/update',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
@@ -213,12 +187,7 @@ function actualizar() {
             $.ajax (
                         {
         
-<<<<<<< HEAD
                             url          : 'http://129.151.121.220:8080/api/Message/update',
-=======
-                            url          : 'http://localhost:8080/api/Message/update',
-                            url          : 'http://152.70.141.56:8080/api/Message/update',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                             type         : 'PUT',
                             data         :  datosEnvio,
                             contentType  : 'application/json',
@@ -238,24 +207,12 @@ function actualizar() {
         
         
         
-<<<<<<< HEAD
 }
 
 function listar(){
             $.ajax(
                      {
                         url          : 'http://129.151.121.220:8080/api/Bike/all',
-=======
-        }
-        function listarBicis(){
-
-            let bicicleta = $("#listaBicis").children("option:selected").val();
-            console.log(bicicleta+" se selecciono");
-            $.ajax(
-                     {
-                        url          : 'http://localhost:8080/api/Bike/all',
-                        url          : 'http://152.70.141.56:8080/api/Bike/all',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                         type         : 'GET',
                         dataType     : 'JSON',
                         success      :  function(respuesta){

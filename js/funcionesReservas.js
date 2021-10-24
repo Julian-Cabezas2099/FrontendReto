@@ -1,12 +1,7 @@
 function listarBicis(){
             $.ajax(
                      {
-<<<<<<< HEAD
                         url          : 'http://129.151.121.220:8080/api/Bike/all',
-=======
-                        url          : 'http://localhost:8080/api/Bike/all',
-                        url          : 'http://152.70.141.56:8080/api/Bike/all',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                         type         : 'GET',
                         dataType     : 'JSON',
                         success      :  function(respuesta){
@@ -45,12 +40,7 @@ function listarBicis(){
 function consultar() {
     $.ajax(
              {
-<<<<<<< HEAD
                 url          : 'http://129.151.121.220:8080/api/Reservation/all',
-=======
-                url          : 'http://localhost:8080/api/Reservation/all',
-                url          : 'http://152.70.141.56:8080/api/Reservation/all',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(respuesta){
@@ -135,12 +125,7 @@ function insertar() {
     $.ajax (
         {
 
-<<<<<<< HEAD
             url          : 'http://129.151.121.220:8080/api/Reservation/save',
-=======
-            url          : 'http://localhost:8080/api/Reservation/save',
-            url          : 'http://152.70.141.56:8080/api/Reservation/save',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
             type         : 'POST',
             contentType  : "application/json;charset-UTF-8",
             dataType     : 'JSON',
@@ -206,12 +191,7 @@ function editarReserva()
             $.ajax (
                 {
         
-<<<<<<< HEAD
                     url          : 'http://129.151.121.220:8080/api/Reservation/update',
-=======
-                    url          : 'http://localhost:8080/api/Reservation/update',
-                    url          : 'http://152.70.141.56:8080/api/Reservation/update',
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
@@ -242,12 +222,7 @@ function borrar(deleteid) {
             // datosEnvio = JSON.stringify(datos);
     
             $.ajax({
-<<<<<<< HEAD
                 url: "http://129.151.121.220:8080/api/Reservation/" + deleteid,
-=======
-                url          : "http://localhost:8080/api/Reservation/" + deleteid,
-                url          : 'http://152.70.141.56:8080/api/Reservation/'+deleteid,
->>>>>>> e09f6e4fc0dde4d2b83cdf9620b32ded662393dd
                 type: "DELETE",
                 // data: datosEnvio,
                 contentType: "application/json",
