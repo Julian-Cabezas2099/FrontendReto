@@ -11,7 +11,7 @@ function insertar2() {
         {
             
 
-            url          : 'http://localhost:8080/api/Category/save',
+            url          : 'http://129.151.121.220:8080/api/Category/save',
             type         : 'POST',
             contentType  : "application/json;charset-UTF-8",
             dataType     : 'JSON',
@@ -33,7 +33,7 @@ function insertar2() {
 function consultar() {
 $.ajax(
      {
-        url          : 'http://localhost:8080/api/Category/all',
+        url          : 'http://129.151.121.220:8080/api/Category/all',
         type         : 'GET',
         dataType     : 'JSON',
         success      :  function(json){
@@ -81,7 +81,7 @@ function borrar(deleteid) {
 $.ajax (
 {
 
-    url          : 'http://localhost:8080/api/Category/'+deleteid,
+    url          : 'http://129.151.121.220:8080/api/Category/'+deleteid,
     type         : 'DELETE',
     contentType  : 'application/json',
 
@@ -107,7 +107,7 @@ cambio      = {idClient: id, name: nombre, description: descripcion};
 datosEnvio   = JSON.stringify(cambio);
 $.ajax (
         {
-            url          : 'http://localhost:8080/api/Category/update',
+            url          : 'http://129.151.121.220:8080/api/Category/update',
             type         : 'PUT',
             data         :  datosEnvio,
             contentType  : 'application/json',

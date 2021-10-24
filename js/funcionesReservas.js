@@ -1,7 +1,7 @@
 function listar(){
             $.ajax(
                      {
-                        url          : 'http://localhost:8080/api/Bike/all',
+                        url          : 'http://129.151.121.220:8080/api/Bike/all',
                         type         : 'GET',
                         dataType     : 'JSON',
                         success      :  function(respuesta){
@@ -25,11 +25,11 @@ function listar(){
         
                   );
                 
-                }
+}
 function consultar() {
     $.ajax(
              {
-                url          : 'http://localhost:8080/api/Reservation/all',
+                url          : 'http://129.151.121.220:8080/api/Reservation/all',
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(respuesta){
@@ -114,7 +114,7 @@ function insertar() {
     $.ajax (
         {
 
-            url          : 'http://localhost:8080/api/Reservation/save',
+            url          : 'http://129.151.121.220:8080/api/Reservation/save',
             type         : 'POST',
             contentType  : "application/json;charset-UTF-8",
             dataType     : 'JSON',
@@ -123,7 +123,7 @@ function insertar() {
             success      :  function(response){
                                console.log(response);
                                //refresh a la tabla
-                               alert("se guardo xd");
+                               alert("Registro Existoso");
                             },
             error       :   function(xhr,status){
                             console.log( xhr);
@@ -180,27 +180,28 @@ function editarReserva()
             $.ajax (
                 {
         
-                    url          : 'http://localhost:8080/api/Reservation/update',
+                    url          : 'http://129.151.121.220:8080/api/Reservation/update',
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
 
                     success      :  function(response){
                                         console.log(response);
-                                        alert("Actualizacion realizada con exito");
+                                        alert("Se realizo la actualizacion con exito");
                                         
                                     },
                     error       :   function(xhr,status){
                                         console.log( xhr);
+                                        
 
                                     }
 
                                 
                 }
             );
-        }
+}
 
-        function borrar(deleteid) {
+function borrar(deleteid) {
 
             console.log("hoaaaaa");
             //creo que enviando el id en la url basta para borrar
@@ -210,7 +211,7 @@ function editarReserva()
             // datosEnvio = JSON.stringify(datos);
     
             $.ajax({
-                url: "http://localhost:8080/api/Reservation/" + deleteid,
+                url: "http://129.151.121.220:8080/api/Reservation/" + deleteid,
                 type: "DELETE",
                 // data: datosEnvio,
                 contentType: "application/json",
@@ -223,4 +224,4 @@ function editarReserva()
                 console.log(xhr);
                 },
             });
-    }
+}

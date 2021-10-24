@@ -1,7 +1,7 @@
 function consultar() {
     $.ajax(
              {
-                url          : 'http://localhost:8080/api/Message/all',
+                url          : 'http://129.151.121.220:8080/api/Message/all',
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(respuesta){
@@ -65,7 +65,7 @@ function insertar() {
             $.ajax (
                 {
         
-                    url          : 'http://localhost:8080/api/Message/save',
+                    url          : 'http://129.151.121.220:8080/api/Message/save',
                     type         : 'POST',
                     contentType  : "application/json;charset-UTF-8",
                     dataType     : 'JSON',
@@ -74,7 +74,7 @@ function insertar() {
                     success      :  function(response){
                                        console.log(response);
                                        //refresh a la tabla
-                                       alert("se guardo xd");
+                                       alert("Registro exitoso");
                                     },
                     error       :   function(xhr,status){
                                     console.log( xhr);
@@ -84,11 +84,10 @@ function insertar() {
                                 
                 }
             );
-           
-        }
+}
         
         
-        function borrar(deleteid) {
+function borrar(deleteid) {
 
            /* var datos;
         
@@ -98,14 +97,14 @@ function insertar() {
             $.ajax (
                 {
         
-                    url          : 'http://localhost:8080/api/Message/'+deleteid,
+                    url          : 'http://129.151.121.220:8080/api/Message/'+deleteid,
                     type         : 'DELETE',
                  
                    
                     contentType  : 'application/json',
         
                     success      :  function(response){
-                                        console.log("Delete exitoso");
+                                        console.log("Se realizo el delete exitoso");
                                         consultar();
         
                                     },
@@ -116,11 +115,11 @@ function insertar() {
                 }
             );
         
-        }
+}
         
 
 
-        function editarmensaje()
+function editarmensaje()
         {
             
             var message;
@@ -138,7 +137,7 @@ function insertar() {
             $.ajax (
                 {
         
-                    url          : 'https://gb3fef91024b680-databasebike.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/message/message',
+                    url          : 'http://129.151.121.220:8080/api/Message/update',
                     type         : 'PUT',
                     data         :  datosEnvio,
                     contentType  : 'application/json',
@@ -155,11 +154,11 @@ function insertar() {
                                 
                 }
             );
-        }
+}
     
 
 
-        function mostrarinfo(idsms, cliente, bicicleta, mensaje, idBicicleta){
+function mostrarinfo(idsms, cliente, bicicleta, mensaje, idBicicleta){
 
 
             //hacer visible el editar informacion (boton detail)
@@ -172,9 +171,9 @@ function insertar() {
             document.getElementById("idBicicleta").value = idBicicleta;
             document.getElementById("messageinfo").value = mensaje;
             
-        }
+}
 
-        function actualizar() {
+function actualizar() {
 
             var idsms = document.getElementById("idsms").value;
             var idBicicleta = document.getElementById("idBicicleta").value;
@@ -191,7 +190,7 @@ function insertar() {
             $.ajax (
                         {
         
-                            url          : 'http://localhost:8080/api/Message/update',
+                            url          : 'http://129.151.121.220:8080/api/Message/update',
                             type         : 'PUT',
                             data         :  datosEnvio,
                             contentType  : 'application/json',
@@ -211,11 +210,12 @@ function insertar() {
         
         
         
-        }
-        function listar(){
+}
+
+function listar(){
             $.ajax(
                      {
-                        url          : 'http://localhost:8080/api/Bike/all',
+                        url          : 'http://129.151.121.220:8080/api/Bike/all',
                         type         : 'GET',
                         dataType     : 'JSON',
                         success      :  function(respuesta){
@@ -239,7 +239,7 @@ function insertar() {
         
                   );
                 
-                }
+}
 
         
         

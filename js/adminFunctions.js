@@ -20,7 +20,7 @@ function insertar() {
             {
                 
 
-                url          : 'http://localhost:8080/api/Admin/save',
+                url          : 'http://129.151.121.220:8080/api/Admin/save',
                 type         : 'POST',
                 contentType  : "application/json;charset-UTF-8",
                 dataType     : 'JSON',
@@ -43,7 +43,7 @@ function consultar() {
     $("#adminInformation").hide();
 $.ajax(
      {
-        url          : 'http://localhost:8080/api/Admin/all',
+        url          : 'http://129.151.121.220:8080/api/Admin/all',
         type         : 'GET',
         dataType     : 'JSON',
         success      :  function(json){
@@ -107,7 +107,7 @@ function borrar(deleteid) {
         // datosEnvio = JSON.stringify(datos);
 
         $.ajax({
-            url: "http://localhost:8080/api/Admin/" + deleteid,
+            url: "http://129.151.121.220:8080/api/Admin/" + deleteid,
             type: "DELETE",
             // data: datosEnvio,
             contentType: "application/json",
@@ -140,7 +140,7 @@ function actualizar() {
         };
         datosEnvio = JSON.stringify(cambio);
         $.ajax({
-            url: "http://localhost:8080/api/Admin/update",
+            url: "http://129.151.121.220:8080/api/Admin/update",
             type: "PUT",
             data: datosEnvio,
             contentType: "application/json",
