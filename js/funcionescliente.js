@@ -9,7 +9,7 @@ function insertar2() {
             var edad = document.getElementById("idEdad").value;
             console.log("Hola mundo");
             
-           cliente = {name: nombre, email: Correo, password:pass, age: edad};
+            cliente = {name: nombre, email: Correo, password:pass, age: edad};
             $.ajax (
                 {
                     
@@ -22,7 +22,7 @@ function insertar2() {
         
                     success      :  function(response){
                                        console.log(response);
-                                       consultar();
+                                    //    consultar();
                                     },
                     error       :   function(xhr,status){
                                     console.log(status);
@@ -60,13 +60,23 @@ function consultar() {
                                         $("#res").append("<td>" + nombre + "</td>");
                                         $("#res").append("<td>" + correo + "</td>");
                                         $("#res").append("<td>" + edad + "</td>");
-                                       $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLES</a></td>");
-                                       $("#boton").click(()=>mostrarinfo(idClient,nombre,correo,edad));
-                                       $("#res").append("<td> <a class=\"btn btn-outline-danger\" onclick=borrar(" +idClient+")>ELIMINAR</a> </td>");
+                                        let nombreId = "botonDet"+i
+                                        let identificador = "#"+nombreId
+                                        console.log(nombreId+" "+identificador)
+                                        let datosFila = json[i]
+                                        $("#res").append("<td> <a id='"+nombreId+"' class='btn btn-outline-primary' >DETALLES</a></td>");
+                                        // $("#res").append("<td> <a id='"+nombreId+"' class='btn btn-outline-primary' onclick='mostrarinfo("+datosFila+")'>DETALLES</a></td>");
+                                        $(identificador).click(() => mostrarinfo(datosFila));
+                                        // $(identificador).click(() => mostrarinfo(idClient,nombre,correo,edad));
+                                        // $(identificador).on("click", mostrarinfo(idClient,nombre,correo,edad));
+                                                       
+                                        $("#res").append("<td> <a class=\"btn btn-outline-danger\" onclick=borrar(" +idClient+")>ELIMINAR</a> </td>");
                                         
                                         $("#res").append("</tr> ");
 
                                     }
+                                    
+                                    // $("#botonDet1").click(() => mostrarinfo(idClient,nombre,correo,edad));
                                     console.log(json)
                                 },
 
@@ -76,16 +86,26 @@ function consultar() {
              }
     );    
 }
-function mostrarinfo(id,nombre,correo,edad){
+function mostrarinfo(datosFila){
    
     document.getElementById("clienteinformation").style.display="";
     document.getElementById("botoninfo").style.display="";
-    document.getElementById("idinfo").value = id;
-    document.getElementById("nombreinfo").value = nombre;
-    document.getElementById("correoinfo").value = correo;
-    document.getElementById("edadinfo").value = edad;
+    document.getElementById("idinfo").value = datosFila.idClient;
+    document.getElementById("nombreinfo").value = datosFila.name;
+    document.getElementById("correoinfo").value = datosFila.email;
+    document.getElementById("edadinfo").value = datosFila.age;
     
 }
+// function mostrarinfo(id,nombre,correo,edad){
+   
+//     document.getElementById("clienteinformation").style.display="";
+//     document.getElementById("botoninfo").style.display="";
+//     document.getElementById("idinfo").value = id;
+//     document.getElementById("nombreinfo").value = nombre;
+//     document.getElementById("correoinfo").value = correo;
+//     document.getElementById("edadinfo").value = edad;
+    
+// }
 function borrar(deleteid) {
 
   

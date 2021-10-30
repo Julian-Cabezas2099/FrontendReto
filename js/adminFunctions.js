@@ -8,31 +8,33 @@ function insertar() {
         // let Correo = document.getElementById("idCorreo").value; 
         let pass = $("#idPassword").val();
         // let pass = document.getElementById("idPassword").value; 
-        console.log("Hola mundo");
         
-    admin = {
+        admin = {
             name: nombre,
             email: correo,
             password:pass
-        }
+        };
 
         $.ajax (
             {
                 
-
+                
                 url          : 'http://129.151.121.220:8080/api/Admin/save',
                 type         : 'POST',
-                contentType  : "application/json;charset-UTF-8",
-                dataType     : 'JSON',
                 data         :  JSON.stringify(admin),
+                contentType  : "application/json;charset-UTF-8",
+                dataType     : 'json',
+                
 
                 success      :  function(response){
                                 console.log(response);
-                                consultar();
-                                },
+                                alert("se guardo")
+                                // consultar();
+                },
                 error       :   function(xhr,status){
                                 console.log(status);
-                                }
+                                alert("hubo un error")
+                }
                             
             }
         );
@@ -43,6 +45,8 @@ function consultar() {
     $("#adminInformation").hide();
 $.ajax(
      {
+
+        // url          : 'http://localhost:8080/api/Admin/all',
         url          : 'http://129.151.121.220:8080/api/Admin/all',
         type         : 'GET',
         dataType     : 'JSON',
@@ -65,14 +69,15 @@ $.ajax(
                                 let correo = json[i].email;
                                 let password = json[i].password;
 
-                                
+                                $("#res").append("<tr>");
                                 $("#res").append("<td>" + idAdmin + "</td>");
                                 $("#res").append("<td>" + nombre + "</td>");
                                 $("#res").append("<td>" + correo + "</td>");
-                                $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLE</a></td>");
-                                $("#boton").click(()=>mostrarinfo(idAdmin,nombre,correo,password));
+                                //$("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLE</a></td>");
+                                //$("#boton").click(()=>mostrarinfo(idAdmin,nombre,correo,password));
+                                $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\" onclick=mostrarinfo('"+idAdmin+"','"+nombre+"','"+correo+"','"+password+"')>DETALLE</a></td>");
                                 $("#res").append("<td> <a class=\"btn btn-outline-danger\" onclick=borrar(" +idAdmin+")>ELIMINAR</a> </td>");
-
+                                $("#res").append("</tr>");
 
                             }
                             
@@ -107,6 +112,8 @@ function borrar(deleteid) {
         // datosEnvio = JSON.stringify(datos);
 
         $.ajax({
+
+            // url: 'http://localhost:8080/api/Admin/'+deleteid,
             url: "http://129.151.121.220:8080/api/Admin/" + deleteid,
             type: "DELETE",
             // data: datosEnvio,
@@ -140,6 +147,8 @@ function actualizar() {
         };
         datosEnvio = JSON.stringify(cambio);
         $.ajax({
+
+            // url : 'http://localhost:8080/api/Admin/update',
             url: "http://129.151.121.220:8080/api/Admin/update",
             type: "PUT",
             data: datosEnvio,

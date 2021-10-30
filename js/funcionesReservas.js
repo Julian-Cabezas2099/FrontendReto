@@ -1,6 +1,7 @@
 function listarBicis(){
             $.ajax(
                      {
+                        // url          : 'http://localhost:8080/api/Bike/all',
                         url          : 'http://129.151.121.220:8080/api/Bike/all',
                         type         : 'GET',
                         dataType     : 'JSON',
@@ -40,6 +41,8 @@ function listarBicis(){
 function consultar() {
     $.ajax(
              {
+                
+                // url          : 'http://localhost:8080/api/Reservation/all',
                 url          : 'http://129.151.121.220:8080/api/Reservation/all',
                 type         : 'GET',
                 dataType     : 'JSON',
@@ -74,10 +77,11 @@ function consultar() {
                     $("#res").append("<td>" + nombreClient + "</td>");
                     $("#res").append("<td>" + correoClient + "</td>");
                     $("#res").append("<td>" + calificacion + "</td>");
-                   
-                    $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\"> DETAIL </a></td>");
-                    //llamar por medio de jquery el accionar del boton detail
-                    $("#boton").click(()=>mostrarinfo(idCliente,bike,fechaC, fechaF, resid, Ibike));
+                    let nombreId = "botonDet"+i
+                    let identificador = "#"+nombreId
+                    let datosFila = respuesta[i]
+                    $("#res").append("<td> <a id='"+nombreId+"' class='btn btn-outline-primary' >DETALLES</a></td>");
+                    $(identificador).click(() => mostrarinfo(datosFila));
                     //insertar y llamar dentro de una columna por medio de JS
                     $("#res").append("<td> <a id='borr' class=\"btn btn-outline-danger\" onclick=borrar(" +idreserva+")> DELETE </a></td>");
                     //$("#borr").click(()=>borrar(idreserva));
@@ -99,6 +103,40 @@ function consultar() {
     );
                         
 }
+function mostrarinfo(datosFila){
+
+    f = new Date(datosFila.startDate);
+    fechaPasar = f.getFullYear()+ '-' + ( f.getMonth() + 1 ) + '-' + f.getDate();
+
+    //Hacer visible el formulario para editar informacion
+    document.getElementById("reservainfo").style.display="";
+    //Hacer visible el boton de actualizar dentro del formulario
+    document.getElementById("botoninfo").style.display="";
+    //asignarle los valores a las cajas de texto para editar
+    document.getElementById("cliente").value = datosFila.client.idClient;
+    document.getElementById("nombrebicicleta").value = datosFila.bike.name;
+    document.getElementById("fecha").value = fechaPasar;
+    document.getElementById("fechafin").value = datosFila.devolutionDate;
+    
+    
+}
+// function mostrarinfo(idcliente, bike, fechaC, fechaF, idreservation, idBike){
+
+//     f =new Date(fechaC);
+//     fechaPasar = f.getFullYear()+ '-' + ( f.getMonth() + 1 ) + '-' + f.getDate();
+
+//     //hacer visible el editar informacion (boton detail)
+//     document.getElementById("reservainfo").style.display="";
+//     document.getElementById("botoninfo").style.display="";
+//     //asignarle los valores a las cajas de editar
+//     document.getElementById("idReservation").value = idreservation;
+//     document.getElementById("idBike").value = idBike;
+//     document.getElementById("cliente").value = idcliente;
+//     document.getElementById("nombrebicicleta").value = bike;
+//     document.getElementById("fecha").value = fechaPasar;
+//     document.getElementById("fechafin").value = fechaF;
+    
+// }
 
 
 function insertar() {
@@ -125,6 +163,7 @@ function insertar() {
     $.ajax (
         {
 
+            // url          : 'http://localhost:8080/api/Reservation/save',
             url          : 'http://129.151.121.220:8080/api/Reservation/save',
             type         : 'POST',
             contentType  : "application/json;charset-UTF-8",
@@ -148,24 +187,6 @@ function insertar() {
 }
 
 
-function mostrarinfo(idcliente, bike, fechaC, fechaF, idreservation, idBike){
-
-    f =new Date(fechaC);
-    fechaPasar = f.getFullYear()+ '-' + ( f.getMonth() + 1 ) + '-' + f.getDate();
-
-    //hacer visible el editar informacion (boton detail)
-    document.getElementById("reservainfo").style.display="";
-    document.getElementById("botoninfo").style.display="";
-    //asignarle los valores a las cajas de editar
-    document.getElementById("idReservation").value = idreservation;
-    document.getElementById("idBike").value = idBike;
-    document.getElementById("cliente").value = idcliente;
-    document.getElementById("nombrebicicleta").value = bike;
-    document.getElementById("fecha").value = fechaPasar;
-    document.getElementById("fechafin").value = fechaF;
-    
-    
-}
 
 
 function editarReserva()
@@ -190,7 +211,7 @@ function editarReserva()
         
             $.ajax (
                 {
-        
+                    // url          : 'http://localhost:8080/api/Reservation/update',
                     url          : 'http://129.151.121.220:8080/api/Reservation/update',
                     type         : 'PUT',
                     data         :  datosEnvio,
@@ -222,6 +243,7 @@ function borrar(deleteid) {
             // datosEnvio = JSON.stringify(datos);
     
             $.ajax({
+                // url          : 'http://localhost:8080/api/Reservation/'+deleteid,
                 url: "http://129.151.121.220:8080/api/Reservation/" + deleteid,
                 type: "DELETE",
                 // data: datosEnvio,

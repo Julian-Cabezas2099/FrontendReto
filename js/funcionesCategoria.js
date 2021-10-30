@@ -6,7 +6,7 @@ function insertar2() {
     var descripcion = document.getElementById("idDescripcion").value;
     console.log("Hola mundo");
     
-   categoria = {name: nombre, description: descripcion};
+    categoria = {name: nombre, description: descripcion};
     $.ajax (
         {
             
@@ -19,10 +19,12 @@ function insertar2() {
 
             success      :  function(response){
                                console.log(response);
-                               consultar();
+                               alert("Guardo");
+                            //    consultar();
                             },
             error       :   function(xhr,status){
                             console.log(status);
+                            alert("Fallo");
                             }
                         
         }
@@ -56,10 +58,11 @@ function consultar() {
                     
                 }
                 $("#res").append("</td>");
-                $("#res").append(
-                "<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLES</a></td>"
-                );
-                $("#boton").click(() => mostrarinfo(idCategory, nombre, descripcion));
+                //$("#res").append(
+                //"<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLES</a></td>"
+                //);
+                //$("#boton").click(() => mostrarinfo(idCategory, nombre, descripcion));
+                $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\" onclick=mostrarinfo('"+idCategory+"','"+nombre+"','"+descripcion+"')>DETALLE</a></td>");
                 $("#res").append(
                 '<td> <a class="btn btn-outline-danger" onclick=borrar(' + idCategory +")>ELIMINAR</a> </td>"
                 );

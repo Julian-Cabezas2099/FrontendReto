@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmnls:th="http//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Categoria</title>
+<script src="js/reports.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+
+<body class="mx-auto">
+	<br>
+	<div class="container">
+	<div class="container" >
+	<h3 >REPORTE DE CLIENTES</h3>
+	</div>
+			<div class="form-group">
+				<div>
+                    <button onclick="insertar2()" type="submit" class="btn btn-primary">Insertar categoria</button>
+				</div>
+			</div>
+		</form><br>
+
+        <hr width=1095>
+<div id="conttabla">
+		<h3>CONTEO DE RESERVAS</h3><br>
+		<div class="form-group">
+			<label  class="col-form-label">DESDE LA FECHA: </label>
+			<div>
+				<input  type="date" id="fechaInicio" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label  class="col-form-label">HASTA LA FECHA: </label>
+			<div>
+				<input  type="date" id="fechaEntrega" class="form-control">
+			</div>
+		</div> <br>
+		<h3 id='resultado'>k</h3>
+
+        <a class="btn btn-success" onclick="consultar()">GENERAR REPORTE</a> 
+        <br> <br> <br>
+        
+</div>
+
+
+    <div  id="categoriainformation">
+        <h3>REPORTE DE RESERVAS COMPLETADAS VS RESERVAS CANCELADAS</h3> 
+        
+
+        <button class="btn btn-primary"  id="botoninfo" onclick=actualizar() >VER RESULTADO</button>
+    </div>
+
+	</div>
+	</div>
+</body>
+<footer class="mx-auto">
+    <br>
+    <br>
+    <br>
+    
+</footer>
+</html>

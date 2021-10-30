@@ -1,2 +1,1 @@
-# FrontendReto
-frontend reto Mintic
+# FrontReto34
